@@ -7,9 +7,11 @@ const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const fs_1 = __importDefault(require("fs"));
 const abort_controller_1 = require("abort-controller");
+const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
 const PORT = 3005;
 // Middleware
+app.use((0, cors_1.default)());
 app.use(body_parser_1.default.json());
 // Reference to the ongoing request and its controller
 let currentRequest = null;

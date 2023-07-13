@@ -2,11 +2,13 @@ import express, { Request, Response } from 'express'
 import bodyParser from 'body-parser'
 import fs from 'fs'
 import { AbortController } from 'abort-controller'
+import cors from 'cors'
 
 const app = express()
 const PORT = 3005
 
 // Middleware
+app.use(cors())
 app.use(bodyParser.json())
 
 // Reference to the ongoing request and its controller
