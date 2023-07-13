@@ -36,7 +36,7 @@ app.post('/search', (req: Request, res: Response) => {
   setTimeout(() => {
     // Check if the request is still active
     if (currentRequest === req) {
-      fs.readFile('/src/data.json', 'utf8', (err, data) => {
+      fs.readFile('src/data.json', 'utf8', (err, data) => {
         if (err) {
           console.error(err)
           currentRequest = null
