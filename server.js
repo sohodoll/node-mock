@@ -8,7 +8,7 @@ const body_parser_1 = __importDefault(require("body-parser"));
 const fs_1 = __importDefault(require("fs"));
 const abort_controller_1 = require("abort-controller");
 const app = (0, express_1.default)();
-const PORT = 3005;
+const PORT = 3000;
 // Middleware
 app.use(body_parser_1.default.json());
 // Reference to the ongoing request and its controller
@@ -33,7 +33,7 @@ app.post('/search', (req, res) => {
     setTimeout(() => {
         // Check if the request is still active
         if (currentRequest === req) {
-            fs_1.default.readFile('src/data.json', 'utf8', (err, data) => {
+            fs_1.default.readFile('data.json', 'utf8', (err, data) => {
                 if (err) {
                     console.error(err);
                     currentRequest = null;
@@ -65,4 +65,3 @@ app.post('/search', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
-exports.default = app;

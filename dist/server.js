@@ -8,7 +8,7 @@ const body_parser_1 = __importDefault(require("body-parser"));
 const fs_1 = __importDefault(require("fs"));
 const abort_controller_1 = require("abort-controller");
 const app = (0, express_1.default)();
-const PORT = 3000;
+const PORT = 3005;
 // Middleware
 app.use(body_parser_1.default.json());
 // Reference to the ongoing request and its controller
@@ -25,7 +25,6 @@ app.post('/search', (req, res) => {
     }
     // Create a new AbortController for the current request
     const controller = new abort_controller_1.AbortController();
-    const { signal } = controller;
     // Store the current request and its controller
     currentRequest = req;
     currentController = controller;
@@ -65,3 +64,4 @@ app.post('/search', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+exports.default = app;

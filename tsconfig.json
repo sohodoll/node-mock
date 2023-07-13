@@ -6,6 +6,5 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*", "./api/*.ts"],
   "types": ["node"]
 }

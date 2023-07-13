@@ -26,7 +26,6 @@ app.post('/search', (req: Request, res: Response) => {
 
   // Create a new AbortController for the current request
   const controller = new AbortController()
-  const { signal } = controller
 
   // Store the current request and its controller
   currentRequest = req
@@ -36,7 +35,7 @@ app.post('/search', (req: Request, res: Response) => {
   setTimeout(() => {
     // Check if the request is still active
     if (currentRequest === req) {
-      fs.readFile('src/data.json', 'utf8', (err, data) => {
+      fs.readFile('data.json', 'utf8', (err, data) => {
         if (err) {
           console.error(err)
           currentRequest = null
