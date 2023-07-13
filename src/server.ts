@@ -4,7 +4,7 @@ import fs from 'fs'
 import { AbortController } from 'abort-controller'
 
 const app = express()
-const PORT = 3000
+const PORT = 3005
 
 // Middleware
 app.use(bodyParser.json())
@@ -36,7 +36,7 @@ app.post('/search', (req: Request, res: Response) => {
   setTimeout(() => {
     // Check if the request is still active
     if (currentRequest === req) {
-      fs.readFile('data.json', 'utf8', (err, data) => {
+      fs.readFile('/src/data.json', 'utf8', (err, data) => {
         if (err) {
           console.error(err)
           currentRequest = null
