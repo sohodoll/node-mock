@@ -23,7 +23,6 @@ app.post('/search', (req: Request, res: Response) => {
   // Cancel the previous request if it is still ongoing
   if (currentController) {
     currentController.abort()
-    console.log('Previous request canceled')
   }
 
   // Create a new AbortController for the current request
@@ -72,5 +71,3 @@ app.post('/search', (req: Request, res: Response) => {
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`)
 })
-
-export default app
